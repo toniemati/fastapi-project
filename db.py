@@ -1,8 +1,7 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Query  # type: ignore
-from sqlmodel import Session, select, create_engine  # type: ignore
-
+from fastapi import Depends  # type: ignore
+from sqlmodel import Session, create_engine  # type: ignore
 
 sqlite_file_name = "burgir.sqlite"
 sqlite_url = f"sqlite:///{sqlite_file_name}"

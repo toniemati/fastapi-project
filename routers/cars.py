@@ -1,7 +1,6 @@
-
 from typing import Annotated
 
-from fastapi import APIRouter, Query, HTTPException  # type: ignore
+from fastapi import APIRouter, HTTPException, Query  # type: ignore
 from sqlmodel import select  # type: ignore
 
 from projekt.db import SessionDep  # type: ignore
@@ -70,7 +69,7 @@ def update_car(
 def delete_car(
     car_id: int,
     session: SessionDep
-):
+) -> dict[str, bool]:
     car = session.get(Car, car_id)
 
     if not car:
