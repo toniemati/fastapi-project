@@ -12,7 +12,7 @@ router = APIRouter()
 
 
 @router.get("/products/sorted")
-def get_sorted_products_by_price(
+async def get_sorted_products_by_price(
     session: SessionDep,
     offset: int = 0,
     limit: Annotated[int, Query(le=100)] = 100,
@@ -26,7 +26,7 @@ def get_sorted_products_by_price(
 
 
 @router.get('/products/find')
-def find_products_by_name(
+async def find_products_by_name(
     session: SessionDep,
     name: str
 ) -> Product:
